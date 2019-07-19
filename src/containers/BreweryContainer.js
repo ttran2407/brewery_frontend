@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
-import {Table} from 'semantic-ui-react'
+import {Table, Modal, Header, Grid} from 'semantic-ui-react'
 
 class BreweryContainer extends Component {
 
     state = {
-        
+       modalOpen: false,
+       selectedBrewery: {}  
     }
 
     handleClick = (brewery) => {
-        console.log(brewery)
+        this.setState({
+            modalOpen: true,
+            selectedBrewery: brewery
+        })
     }
+
+    handleClose = () => this.setState({ modalOpen: false })
 
     render() { 
         const list = this.props.breweryList.map(brewery => 
@@ -43,6 +49,27 @@ class BreweryContainer extends Component {
                     </Table.Body>
                 </Table>
                 </div>
+
+                <Modal
+                    centered={false}
+                    open={this.state.modalOpen}
+                    onClose={this.handleClose}
+                >
+                    <Modal.Content>
+                        <Grid>
+                            <Grid.Column width={4}>
+                                <Header>{this.state.selectedBrewery.name}</Header>
+                                <p>{this.state.selectedBrewery.street}, {this.state.selectedBrewery.city}, {this.state.selectedBrewery.postal_code}</p>
+                                <a href={this.state.selectedBrewery.website_url}>{this.state.selectedBrewery.website_url}</a>
+                            </Grid.Column>
+                            <Grid.Column width={6}>
+                                
+                            </Grid.Column>
+                        </Grid>
+   
+
+                    </Modal.Content>
+                </Modal>
             </div>
          );
     }
