@@ -1,10 +1,49 @@
 import React, { Component } from 'react';
+import {Table} from 'semantic-ui-react'
 
 class BreweryContainer extends Component {
-    state = {  }
+
+    state = {
+        
+    }
+
+    handleClick = (brewery) => {
+        console.log(brewery)
+    }
+
     render() { 
+        const list = this.props.breweryList.map(brewery => 
+            <Table.Row key={brewery.id} onClick={() => this.handleClick(brewery)} >
+                <Table.Cell style = {{'fontWeight': "bold"}} width={4}>{brewery.name}</Table.Cell>
+                <Table.Cell>{brewery.brewery_type}</Table.Cell>
+                <Table.Cell>
+                    {brewery.street}, {brewery.city}, {brewery.postal_code}
+                </Table.Cell>
+                <Table.Cell>
+                <a href={brewery.website_url}>{brewery.website_url}</a>
+                </Table.Cell>
+          </Table.Row>    
+        )
+
         return ( 
-            <div>Hello World</div>
+            <div style={{"backgroundColor": "black"}}>
+                
+                <div style={{"height": "60vh", "overflow": "scroll", "width": "100%"}}>
+                <Table  inverted striped selectable>
+                    <Table.Header>
+                        <Table.Row>
+                            <Table.HeaderCell>Name</Table.HeaderCell>
+                            <Table.HeaderCell>Type</Table.HeaderCell>
+                            <Table.HeaderCell>Address</Table.HeaderCell>
+                            <Table.HeaderCell>Website</Table.HeaderCell>
+                        </Table.Row>
+                    </Table.Header>
+                    <Table.Body style={{"height": "50vh", "overflow": "scroll", "width": "100%"}}>
+                        {list}
+                    </Table.Body>
+                </Table>
+                </div>
+            </div>
          );
     }
 }
