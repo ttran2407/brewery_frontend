@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import {Icon} from 'semantic-ui-react'
 
 
 //API Key: AIzaSyD0EhlUwQGyjgVOvJUiG6YD46SU6vXwQI4
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const GOOGLE_API_KEY = "AIzaSyD0EhlUwQGyjgVOvJUiG6YD46SU6vXwQI4";
+
+const PinComponent = () =><Icon size="large" color="red" name="map marker" /> ;
+
 
 class Map extends Component {
     state = {  }
@@ -13,19 +17,24 @@ class Map extends Component {
           lat: 40.02,
           lng: -80.30
         },
-        zoom: 11
+        zoom: 16
     };
     render() { 
-        console.log(this.props.brewery.latitude)
-        console.log(this.props.brewery.longitude)
+        let actualCenter = {lat: parseFloat(this.props.brewery.latitude),lng: parseFloat(this.props.brewery.longitude)}
+        
+        // console.log(actualCenter)
+        // console.log(this.props.brewery.latitude)
+        // console.log(this.props.brewery.longitude)
+
         return (
             <div style={{ height: '60vh', width: '100%' }}>
                 <GoogleMapReact
-                    bootstrapURLKeys={{ key: 'AIzaSyD0EhlUwQGyjgVOvJUiG6YD46SU6vXwQI4'}}
+                    bootstrapURLKeys={{ key: GOOGLE_API_KEY}}
                     defaultCenter={this.props.center}
+                    center={actualCenter}
                     defaultZoom={this.props.zoom}
         >
-                    <AnyReactComponent
+                    <PinComponent
                         lat={this.props.brewery.latitude}
                         lng={this.props.brewery.longitude}
                         text={this.props.brewery.name}

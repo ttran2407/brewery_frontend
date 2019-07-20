@@ -7,7 +7,8 @@ class Brewery extends Component {
     render() { 
         
         return (
-            {this.props.brewery.name}
+            <div>{this.props.brewery.name}</div>
+            
           );
     }
 }
