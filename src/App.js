@@ -1,8 +1,9 @@
 import React,{Component} from 'react';
 import './App.css';
 import BreweryContainer from './containers/BreweryContainer'
-import pic from './pictures/alcohol-ale-bar-159291.jpg'
+
 import NavBar from './components/NavBar'
+import Intro from './components/Intro'
 
 
 
@@ -28,7 +29,7 @@ class App extends Component {
     return (
       <div className="" style={{"backgroundColor": "black"}}>
         <NavBar/>
-        <img style={{"height": "50%", "width": "50%", "display": "block", "margin": "auto"}} src={pic} alt="Logo" />
+        <Intro/>
         <BreweryContainer breweryListDisplay={this.state.breweryListDisplay} />
       </div>
     );

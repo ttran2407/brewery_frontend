@@ -10,9 +10,13 @@ class NavBar extends Component {
                 <Menu  attached='top' inverted>
                     <Menu.Item >
                         <img style={{'height': "50px", 'width': "50px"}} src={logo} alt="Logo" />
-                    
-                    <h1 style={{'fontSize': '16px', 'fontFamily': "Droid serif",'color': "white" }}>Finding the best Brewery in Pensylvania</h1>
                     </Menu.Item>
+
+                    <Menu.Item >
+                    <h1 style={{'fontSize': '16px', 'fontFamily': "Droid serif",'color': "white", "margin": "auto" }}>Finding the best Brewery in Pensylvania</h1>
+                    </Menu.Item>
+
+                    
                     
                     <Menu.Item position='right'>
                     <div className='ui right aligned category search item'>

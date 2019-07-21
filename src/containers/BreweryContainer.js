@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Table, Modal, Header, Grid, Rating} from 'semantic-ui-react'
+import {Table} from 'semantic-ui-react'
 import Brewery from '../components/Brewery'
 
 class BreweryContainer extends Component {
@@ -51,7 +51,7 @@ class BreweryContainer extends Component {
                 </Table>
                 </div>
 
-                {/* pass down modalOpen, handleClose, and selectedBrewery*/}
+
                 <Brewery modalOpen={this.state.modalOpen} handleClose={this.handleClose} selectedBrewery={this.state.selectedBrewery}/>
             </div>
          );
