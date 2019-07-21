@@ -3,9 +3,9 @@ import GoogleMapReact from 'google-map-react';
 import {Icon} from 'semantic-ui-react'
 
 
-//API Key: AIzaSyD0EhlUwQGyjgVOvJUiG6YD46SU6vXwQI4
 
-const GOOGLE_API_KEY = "AIzaSyD0EhlUwQGyjgVOvJUiG6YD46SU6vXwQI4";
+
+const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
 const PinComponent = () =><Icon size="large" color="red" name="map marker" /> ;
 
@@ -21,7 +21,8 @@ class Map extends Component {
     };
     render() { 
         let actualCenter = {lat: parseFloat(this.props.brewery.latitude),lng: parseFloat(this.props.brewery.longitude)}
-        
+
+        // console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY)
         // console.log(actualCenter)
         // console.log(this.props.brewery.latitude)
         // console.log(this.props.brewery.longitude)

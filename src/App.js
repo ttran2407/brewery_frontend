@@ -11,7 +11,8 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    fetch(`https://api.openbrewerydb.org/breweries?by_state=pennsylvania&per_page=50`)
+    // fetch(`https://api.openbrewerydb.org/breweries?by_state=pennsylvania&per_page=50`)
+    fetch("http://localhost:3000/breweries")
     .then(res => res.json())
     .then(breweryList => this.setState({
         breweryList: breweryList
