@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Table, Modal, Header, Grid} from 'semantic-ui-react'
+import {Table, Modal, Header, Grid, Rating} from 'semantic-ui-react'
 import Map from '../components/Map'
 
 class BreweryContainer extends Component {
@@ -60,7 +60,9 @@ class BreweryContainer extends Component {
                         <Grid>
                             <Grid.Column width={6}>
                                 <Header>{this.state.selectedBrewery.name}</Header>
-                                <p>{this.state.selectedBrewery.street}, {this.state.selectedBrewery.city}, {this.state.selectedBrewery.postal_code}</p>
+                                <div><Rating icon='star' defaultRating={this.state.selectedBrewery.rating} maxRating={6} /></div><br/>
+                                <div>{this.state.selectedBrewery.street}, {this.state.selectedBrewery.city}, {this.state.selectedBrewery.postal_code}</div><br/>
+                                <div>{this.state.selectedBrewery.phone}</div><br/>
                                 <a href={this.state.selectedBrewery.website_url}>{this.state.selectedBrewery.website_url}</a>
                             </Grid.Column>
                             <Grid.Column width={10}>
