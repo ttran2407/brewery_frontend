@@ -19,9 +19,9 @@ class NavBar extends Component {
                     
                     
                     <Menu.Item position='right'>
-                    <div className='ui right aligned category search item'>
+                    <div className='ui right aligned category search item' onChange={this.props.handleChange}>
                         <div className='ui transparent icon input'>
-                            <input className='prompt' type='text' placeholder='Search Brewery Name ...' />
+                            <input className='prompt' type='text' style={{"color": "white"}} placeholder='Search Brewery Name ...' />
                                 <i className='search link icon' />
                         </div>
                     </div>

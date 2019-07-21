@@ -25,10 +25,20 @@ class App extends Component {
     }))
   };
 
+  handleChange = (e) => {
+    let value = e.target.value.toLowerCase()
+    let newList = this.state.breweryList.filter(
+      brewery => brewery.name.toLowerCase().includes(value)
+    )
+
+    this.setState({breweryListDisplay: newList})
+    console.log(newList)
+  }
+
   render() { 
     return (
       <div className="" style={{"backgroundColor": "black"}}>
-        <NavBar/>
+        <NavBar handleChange ={this.handleChange}/>
         <Intro/>
         <BreweryContainer breweryListDisplay={this.state.breweryListDisplay} />
       </div>
