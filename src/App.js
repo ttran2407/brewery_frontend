@@ -10,6 +10,7 @@ class App extends Component {
 
   state = {
     breweryList:[],
+    breweryListDisplay: []
   }
 
   componentDidMount = () => {
@@ -18,7 +19,8 @@ class App extends Component {
     fetch("https://brewery-pens-backend.herokuapp.com/breweries")
     .then(res => res.json())
     .then(breweryList => this.setState({
-        breweryList: breweryList
+        breweryList: breweryList,
+        breweryListDisplay: breweryList
     }))
   };
 
@@ -27,7 +29,7 @@ class App extends Component {
       <div className="" style={{"backgroundColor": "black"}}>
         <NavBar/>
         <img style={{"height": "50%", "width": "50%", "display": "block", "margin": "auto"}} src={pic} alt="Logo" />
-        <BreweryContainer breweryList={this.state.breweryList} />
+        <BreweryContainer breweryListDisplay={this.state.breweryListDisplay} />
       </div>
     );
   }

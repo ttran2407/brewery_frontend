@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Table, Modal, Header, Grid, Rating} from 'semantic-ui-react'
-import Map from '../components/Map'
+import Brewery from '../components/Brewery'
 
 class BreweryContainer extends Component {
 
@@ -19,7 +19,7 @@ class BreweryContainer extends Component {
     handleClose = () => this.setState({ modalOpen: false })
 
     render() { 
-        const list = this.props.breweryList.map(brewery => 
+        const list = this.props.breweryListDisplay.map(brewery => 
             <Table.Row key={brewery.id} onClick={() => this.handleClick(brewery)} >
                 <Table.Cell style = {{'fontWeight': "bold"}} width={4}>{brewery.name}</Table.Cell>
                 <Table.Cell>{brewery.brewery_type}</Table.Cell>
@@ -51,28 +51,8 @@ class BreweryContainer extends Component {
                 </Table>
                 </div>
 
-                <Modal
-                    centered={false}
-                    open={this.state.modalOpen}
-                    onClose={this.handleClose}
-                >
-                    <Modal.Content>
-                        <Grid>
-                            <Grid.Column width={6}>
-                                <Header>{this.state.selectedBrewery.name}</Header>
-                                <div><Rating icon='star' defaultRating={this.state.selectedBrewery.rating} maxRating={6} /></div><br/>
-                                <div>{this.state.selectedBrewery.street}, {this.state.selectedBrewery.city}, {this.state.selectedBrewery.postal_code}</div><br/>
-                                <div>{this.state.selectedBrewery.phone}</div><br/>
-                                <a href={this.state.selectedBrewery.website_url}>{this.state.selectedBrewery.website_url}</a>
-                            </Grid.Column>
-                            <Grid.Column width={10}>
-                                <Map brewery = {this.state.selectedBrewery}/>
-                            </Grid.Column>
-                        </Grid>
-   
-
-                    </Modal.Content>
-                </Modal>
+                {/* pass down modalOpen, handleClose, and selectedBrewery*/}
+                <Brewery modalOpen={this.state.modalOpen} handleClose={this.handleClose} selectedBrewery={this.state.selectedBrewery}/>
             </div>
          );
     }
