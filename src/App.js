@@ -12,7 +12,8 @@ class App extends Component {
 
   componentDidMount = () => {
     // fetch(`https://api.openbrewerydb.org/breweries?by_state=pennsylvania&per_page=50`)
-    fetch("http://localhost:3000/breweries")
+    // fetch("http://localhost:3000/breweries")
+    fetch("https://brewery-pens-backend.herokuapp.com/breweries")
     .then(res => res.json())
     .then(breweryList => this.setState({
         breweryList: breweryList

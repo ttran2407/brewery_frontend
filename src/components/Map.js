@@ -4,10 +4,9 @@ import {Icon} from 'semantic-ui-react'
 
 
 
-
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
-const PinComponent = () =><Icon size="large" color="red" name="map marker" /> ;
+const PinComponent = () =><Icon size="huge" color="red" name="map marker" /> ;
 
 
 class Map extends Component {
