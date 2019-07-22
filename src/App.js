@@ -18,11 +18,18 @@ class App extends Component {
     // fetch(`https://api.openbrewerydb.org/breweries?by_state=pennsylvania&per_page=50`)
     // fetch("http://localhost:3000/breweries")
     fetch("https://brewery-pens-backend.herokuapp.com/breweries")
-    .then(res => res.json())
+    .then(res => {
+      if (res.ok){
+        return res.json()
+      } else {
+        throw new Error('Something went wrong');
+      }
+    })
     .then(breweryList => this.setState({
         breweryList: breweryList,
         breweryListDisplay: breweryList
     }))
+    .catch(error => console.log(error))
   };
 
   handleChange = (e) => {

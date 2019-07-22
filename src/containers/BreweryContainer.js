@@ -36,7 +36,7 @@ class BreweryContainer extends Component {
             <div>
                 
                 <div className="brewery-list" >
-                <Table  inverted striped selectable>
+                <Table  inverted striped selectable textAlign="center">
                     <Table.Header>
                         <Table.Row>
                             <Table.HeaderCell>Name</Table.HeaderCell>
