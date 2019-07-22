@@ -27,7 +27,7 @@ class Map extends Component {
         // console.log(this.props.brewery.longitude)
 
         return (
-            <div style={{ height: '60vh', width: '100%' }}>
+            <div className="map">
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: GOOGLE_API_KEY}}
                     defaultCenter={this.props.center}
