@@ -1,10 +1,10 @@
 import React,{Component} from 'react';
 import './App.css';
+import './Custom.sass'
 import BreweryContainer from './containers/BreweryContainer'
 
 import NavBar from './components/NavBar'
 import Intro from './components/Intro'
-
 
 
 class App extends Component {

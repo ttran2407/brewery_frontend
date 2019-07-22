@@ -1,0 +1,82 @@
+.intro
+    display: grid
+    align-items: center
+    
+ 
+
+.image
+    width: 50% 
+    -webkit-animation: slideleft forwards
+    -webkit-animation-duration: 6s
+    animation-timing-function: ease-in-out
+    grid-column: 1/3
+    grid-row: 1/4
+
+@keyframes slideleft 
+    0%
+        margin-left: 25%; opacity: 0
+    50%
+        margin-left: 25%; opacity: 1
+    100%
+        margin-left: 0%; opacity: 1
+
+
+%intro-text-shared
+    font-family: proxima-nova
+    color: white
+    font-size: 16px
+    line-height: 34px
+    grid-column: 2
+    margin: 0% 15% 0% 35%
+    opacity: 0
+    -webkit-animation: appearance forwards
+    -webkit-animation-duration: 2s
+    animation-timing-function: ease-in-out
+
+
+.first
+    @extend %intro-text-shared
+    grid-row: 1
+    animation-delay: 6.5s;
+    
+
+.second  
+    @extend %intro-text-shared
+    grid-row: 2
+    animation-delay: 8.5s;
+
+
+
+.third
+    @extend %intro-text-shared
+    grid-row: 3
+    animation-delay: 12s;
+
+
+
+@keyframes appearance
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+
+
+
+
+.brewery-list
+    height: 60vh
+    overflow: scroll
+    width: 100%
+    -webkit-animation: tableslide forwards
+    -webkit-animation-duration: 3s
+    animation-timing-function: ease-in-out
+    animation-delay: 13.5s;
+    opacity: 0
+
+@keyframes tableslide
+    0%
+        margin-left: 100%; opacity: 0
+    100%
+        margin-left: 0%; opacity: 1
+
+

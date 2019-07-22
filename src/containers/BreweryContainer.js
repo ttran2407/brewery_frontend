@@ -33,9 +33,9 @@ class BreweryContainer extends Component {
         )
 
         return ( 
-            <div style={{"backgroundColor": "black"}}>
+            <div>
                 
-                <div style={{"height": "60vh", "overflow": "scroll", "width": "100%"}}>
+                <div className="brewery-list" >
                 <Table  inverted striped selectable>
                     <Table.Header>
                         <Table.Row>
@@ -45,7 +45,7 @@ class BreweryContainer extends Component {
                             <Table.HeaderCell>Website</Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
-                    <Table.Body style={{"height": "50vh", "overflow": "scroll", "width": "100%"}}>
+                    <Table.Body >
                         {list}
                     </Table.Body>
                 </Table>
